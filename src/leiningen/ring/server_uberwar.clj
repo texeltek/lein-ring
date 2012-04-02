@@ -16,6 +16,6 @@
   "Create a $PROJECT-$VERSION.war with dependencies and run the war in jetty container."
   ([project]
    (server-uberwar project (uberwar/default-uberwar-name project)))
-  ([project war]
-   (uberwar/uberwar project war)
-   (jetty-run-war war)))
+  ([project war-name]
+   (let [war-path (uberwar/uberwar project war-name)]
+     (jetty-run-war war-path))))
